@@ -16,7 +16,7 @@ module.exports = {
   // test: {
   //  dialect: 'sqlite',
   //  storage: './database.test.sqlite',
-  },
+//  },
     test: {
        dialect: 'postgres',
        database: process.env.DATABASE_NAME,
