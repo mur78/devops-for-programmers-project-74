@@ -10,6 +10,7 @@ services:
     volumes:
       - ./app:/app
     command: make dev
+
   caddy:
     image: caddy:latest
     ports:
@@ -25,4 +26,5 @@ services:
 
 volumes:
   caddy_data:
-  caddy_config:    
+  caddy_config:
+ 
