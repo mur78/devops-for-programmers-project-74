@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
+    volumes:
+      - ./app:/app
     environment:
       DATABASE_HOST: ${DATABASE_HOST:-db}
       DATABASE_NAME: ${DATABASE_NAME:-postgres}
