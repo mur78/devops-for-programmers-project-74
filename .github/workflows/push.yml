@@ -19,13 +19,13 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Install dependencies
-        run: docker-compose -f docker-compose.yml run --rm app make setup
+        run: docker compose -f docker-compose.yml run --rm app make setup
             
       - name: Run tests
-        run: docker-compose -f docker-compose.yml up --abort-on-container-exit
+        run: docker compose -f docker-compose.yml up --abort-on-container-exit
       
       - name: Build product images
-        run: docker-compose -f docker-compose.yml build app
+        run: docker compose -f docker-compose.yml build app
 
       - name: Push to DockerHub
-        run: docker-compose -f docker-compose.yml push app
+        run: docker compose -f docker-compose.yml push app

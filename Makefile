@@ -1,26 +1,20 @@
-setup:
-	npm install
+compose-test:
+	docker compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
-test:
-	npm test
+prepare-env: 
+	cp -n .env.example .env
 
-dev:
-	npm start
+compose-run:
+	docker compose up
 
-docker-test:
-	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
+compose-production-build:
+	docker compose -f docker-compose.yml build
 
-docker-run:
-	docker-compose up
-
-docker-build-prod:
-	docker-compose -f docker-compose.yml build app
-
-docker-push:
-	docker-compose -f docker-compose.yml push app
+compose-push:
+	docker compose -f docker-compose.yml push app
 
 docker-pull:
 	 docker pull muto78/project1
 
 ci:
-	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
+	prepare-env compose-production-build compose-test
