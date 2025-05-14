@@ -17,7 +17,7 @@ compose-run:
 	docker compose up
 
 compose-production-build:
-	docker compose -f docker-compose.yml build
+	docker compose -f docker-compose.yml build app
 
 compose-push:
 	docker compose -f docker-compose.yml push app
